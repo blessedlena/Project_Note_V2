@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #fdfcfb; /* Warm White Paper */
+  color: #1a1a1a; /* Soft Black */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom selection color in Sky Blue */
+::selection {
+  background: #bae6fd; /* sky-200 */
+  color: #0369a1; /* sky-700 */
+}
