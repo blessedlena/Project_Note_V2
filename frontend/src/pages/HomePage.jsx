@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { PlusIcon } from "lucide-react"; 
 import toast from "react-hot-toast";
 
-import Navbar from "../components/Navbar";
 import RateLimitedUI from "../components/RateLimitedUI";
 import api from "../lib/axios";
 import NoteCard from "../components/NoteCard";
@@ -46,8 +45,6 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen bg-[#fdfcfb] text-slate-900 font-sans">
-      <Navbar />
-
       <main className="max-w-6xl mx-auto px-6 py-12">
         <header className="mb-12 flex justify-between items-start">
           <div>
@@ -96,5 +93,6 @@ const HomePage = () => {
     </div>
   );
 };
+
 
 export default HomePage;
