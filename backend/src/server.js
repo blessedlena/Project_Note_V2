@@ -27,16 +27,21 @@ app.use(rateLimiter);
 app.use("/api/notes", notesRoutes); // 
 
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, "../frontend/dist")));
+    // In Docker zeigt path.resolve() auf /app
+    // Das Frontend liegt in /app/frontend/dist
+    const frontendPath = path.join(path.resolve(), "frontend/dist");
+    
+    app.use(express.static(frontendPath));
 
     app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
+        res.sendFile(path.join(frontendPath, "index.html"));
     });
-};
+}
 
 connectDB().then(() => {
     app.listen(PORT, () => {
     console.log("Server started on PORT: 5001");
     });
 });
+
 
